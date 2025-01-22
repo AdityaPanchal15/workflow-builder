@@ -3,40 +3,20 @@ import { Handle, Position } from 'react-flow-renderer';
 
 const CustomNode = ({ id, data }: any) => {
   return (
-    <div
-      style={{
-        padding: 10,
-        border: '1px solid black',
-        borderRadius: 4,
-        background: '#fff',
-        position: 'relative',
-      }}
-    >
-      <div>{data.label}</div>
+    <div className="p-2 border border-black rounded-md bg-white relative">
+      <div className='text-xs'>{data.label}</div>
       
       {/* Delete Icon */}
       <button
         onClick={() => data.onDelete(id)} // Call the delete function passed via props
-        style={{
-          padding: '2px 0',
-          position: 'absolute',
-          top: -10,
-          right: -10,
-          background: 'red',
-          color: 'white',
-          border: 'none',
-          borderRadius: '50%',
-          width: 20,
-          height: 20,
-          cursor: 'pointer',
-        }}
+        className="absolute top-[-10px] right-[-10px] w-5 h-5 bg-red-500 text-white border-none rounded-full cursor-pointer flex items-center justify-center"
       >
         ×
       </button>
       
       {/* Connection Handles */}
-      <Handle type="target" style={{ background: 'blue' }} position={Position.Top} />
-      <Handle type="source" style={{ background: 'green' }} position={Position.Bottom} />
+      <Handle type="target" className="!bg-blue-500" position={Position.Top} />
+      <Handle type="source" className="!bg-green-500" position={Position.Bottom} />
     </div>
   );
 };

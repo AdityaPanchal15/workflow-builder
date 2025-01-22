@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import WorkflowCanvas from '../components/WorkflowCanvas';
-import Controls from '../components/Controls';
+import Controls from '../components/Header';
 import { Node, Edge, addEdge, applyNodeChanges } from 'react-flow-renderer';
 
 const Home: React.FC = () => {
@@ -51,6 +51,11 @@ const Home: React.FC = () => {
     if (savedWorkflow) {
       const { nodes, edges } = JSON.parse(savedWorkflow);
       setNodes(nodes);
+
+      // Update nodeId based on the max id of loaded nodes
+      const maxId = Math.max(...nodes.map((node: any) => parseInt(node.id.split('-')[1], 10)));
+      setNodeId(maxId + 1); // Start the next nodeId from the next available number
+
       setEdges(edges);
       alert('Workflow loaded!');
     } else {

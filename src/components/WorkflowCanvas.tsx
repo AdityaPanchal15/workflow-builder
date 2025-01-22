@@ -30,7 +30,7 @@ const WorkflowCanvas: React.FC<WorkflowCanvasProps> = ({
   onDeleteNode,
 }) => {
   return (
-    <div style={{ flex: 1 }}>
+    <div className="flex-1 overflow-hidden bg-gray-100">
       <ReactFlow
         nodes={nodes.map((node) => ({
           ...node,
@@ -41,11 +41,11 @@ const WorkflowCanvas: React.FC<WorkflowCanvasProps> = ({
         onNodesChange={onNodesChange}
         nodeTypes={nodeTypes} // Use the stable nodeTypes
         fitView
-        style={{ background: '#f0f0f0', height: '100%' }}
+        className="h-full" // Full height to fill the parent div
       >
-        <MiniMap />
+        <MiniMap nodeStrokeWidth={3} className="bg-white border-gray-200" />
         <Controls />
-        <Background />
+        <Background color="#f0f0f0" gap={16} />
       </ReactFlow>
     </div>
   );
