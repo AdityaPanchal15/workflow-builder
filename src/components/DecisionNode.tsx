@@ -13,8 +13,8 @@ const DecisionNode = ({ id, data }: any) => {
         ×
       </button>
       <div className="flex justify-around mt-4">
-        <button className="bg-green-500 px-4 py-2 rounded">Yes</button>
-        <button className="bg-red-500 px-4 py-2 rounded">No</button>
+        <button className="bg-green-500 px-2 py-2 rounded mr-1 text-sm">Yes</button>
+        <button className="bg-red-500 px-2 py-2 rounded text-sm">No</button>
       </div>
       <Handle type="target" position={Position.Top} style={{ background: "yellow" }} />
       <Handle type="source" position={Position.Bottom} style={{ background: "yellow" }} />
