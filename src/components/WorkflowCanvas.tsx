@@ -7,11 +7,13 @@ import ReactFlow, {
   Edge,
   NodeTypes,
 } from 'react-flow-renderer';
-import CustomNode from './CustomNode';
+import TaskNode from "./TaskNode";
+import DecisionNode from "./DecisionNode";
 
 // Define nodeTypes outside the component
 const nodeTypes: NodeTypes = {
-  customNode: CustomNode,
+  taskNode: TaskNode,
+  decisionNode: DecisionNode,
 };
 
 interface WorkflowCanvasProps {

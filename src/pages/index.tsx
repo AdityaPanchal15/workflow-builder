@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { Node, Edge, addEdge, applyNodeChanges } from 'react-flow-renderer';
+import React, { useState, useCallback } from "react";
+import { Node, Edge, addEdge, applyNodeChanges } from "react-flow-renderer";
 
 import Header from '../components/Header';
 import WorkflowCanvas from '../components/WorkflowCanvas';
@@ -10,11 +10,11 @@ const Home: React.FC = () => {
   const [nodeId, setNodeId] = useState(0);
 
   // Function to add a new node
-  const onAddNode = () => {
+  const onAddNode = (type: string) => {
     const newNode: Node = {
       id: `node-${nodeId}`,
-      type: 'customNode', // Use the custom node type
-      data: { label: `Node ${nodeId + 1}` },
+      type: type, // Use the custom node type (taskNode or decisionNode)
+      data: { label: `${type === "taskNode" ? "Task" : "Decision"} Node ${nodeId + 1}` },
       position: { x: Math.random() * 500, y: Math.random() * 500 },
     };
     setNodeId(nodeId + 1);
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
         edges={edges}
         onConnect={onConnect}
         onNodesChange={onNodesChange}
-        onDeleteNode={onDeleteNode} // Pass the delete handler
+        onDeleteNode={onDeleteNode}
       />
     </div>
   );
