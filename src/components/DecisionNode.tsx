@@ -4,7 +4,7 @@ import { Handle, Position } from "react-flow-renderer";
 const DecisionNode = ({ id, data }: any) => {
   return (
     <div className="bg-yellow-500 text-white p-4 rounded shadow">
-      <div>{data.label}</div>
+      <div className="text-xs">{data.label}</div>
       {/* Delete Icon */}
       <button
         onClick={() => data.onDelete(id)} // Call the delete function passed via props
