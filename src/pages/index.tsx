@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import WorkflowCanvas from '../components/WorkflowCanvas';
-import Controls from '../components/Header';
 import { Node, Edge, addEdge, applyNodeChanges } from 'react-flow-renderer';
+
+import Header from '../components/Header';
+import WorkflowCanvas from '../components/WorkflowCanvas';
 
 const Home: React.FC = () => {
   const [nodes, setNodes] = useState<Node[]>([]);
@@ -64,9 +65,9 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      {/* Header section with controls */}
-      <Controls onAddNode={onAddNode} saveWorkflow={saveWorkflow} loadWorkflow={loadWorkflow} />
+    <div className="flex flex-col h-screen">
+      {/* Header section */}
+      <Header onAddNode={onAddNode} saveWorkflow={saveWorkflow} loadWorkflow={loadWorkflow} />
 
       {/* Workflow Canvas */}
       <WorkflowCanvas
